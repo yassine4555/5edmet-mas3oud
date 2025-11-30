@@ -62,7 +62,7 @@ class Meeting(db.Model):
             'is_active': self.is_active,
             'started_at': self.started_at.isoformat() if self.started_at else None,
             'ended_at': self.ended_at.isoformat() if self.ended_at else None,
-            'has_password': bool(self.password)
+            'password': self.password
         }
     
     def to_dict_with_password(self):
