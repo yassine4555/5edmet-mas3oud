@@ -1,0 +1,243 @@
+* commit 13494c899df5d6012563f77514d5eab3dd3baef3
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Wed Nov 19 00:58:48 2025 +0100
+| 
+|     done
+| 
+* commit ca8408d0e70ca9c8e7e4fc8f55c95f2b0039e6b2
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Fri Nov 14 17:22:58 2025 +0100
+| 
+|     it works for adding useres
+|   
+| * commit 3bc499423f745c2ef54db23ac32c7b4687d4b14c
+| | Author: AHML47 <69380669+AHML47@users.noreply.github.com>
+| | Date:   Fri Nov 14 17:43:39 2025 +0100
+| | 
+| |     Add files via upload
+| |   
+| | * commit 51ae081eda1713119b7881f095e57f9fc9dd0ae9
+| | | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | | Date:   Tue Nov 11 03:46:07 2025 +0100
+| | | 
+| | |     chat da5elha fe 7it
+| | | 
+| | * commit 850c440847e3fda3f8f10aa766d307668e34ffcc
+| | | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | | Date:   Tue Nov 11 03:01:24 2025 +0100
+| | | 
+| | |     old system
+| | | 
+| | * commit 409c2ff3d890fac2e42b3558414d9646534e2592
+| | | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | | Date:   Tue Nov 11 02:37:33 2025 +0100
+| | | 
+| | |     add join meet
+| | | 
+| | * commit 96bfdfe1c839bbeecce9eab7e8fe6fa9542e41e1
+| | | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | | Date:   Tue Nov 11 02:21:32 2025 +0100
+| | | 
+| | |     create meet api
+| | | 
+| | * commit 88b528439be81354f39eba9dc52f3bbea5a53916
+| |/  Author: ahmed meliane <ahmed.meliane04@gmail.com>
+|/|   Date:   Tue Nov 11 02:21:05 2025 +0100
+| |   
+| |       add meet jhelper
+| | 
+* | commit f780cb5e5a4a0dc8b5101dc7e01c7752804836b8
+|/  Author: ahmed meliane <ahmed.meliane04@gmail.com>
+|   Date:   Tue Nov 11 01:57:56 2025 +0100
+|   
+|       create meet class
+| 
+* commit 24f71f7047382aab39531caa2c1844a88284e323
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Nov 9 16:14:05 2025 +0100
+| 
+|     codePart work
+| 
+* commit bcc06c8ca71fc7dec67d9c1c82b122b348eddb19
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Nov 9 16:07:14 2025 +0100
+| 
+|     json error
+| 
+* commit 7a1d7a4920bcfb0f5d90f7c020472d3d5e9bc7b0
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Nov 9 15:11:14 2025 +0100
+| 
+|     add code generateor
+| 
+* commit abe6cea61f87398bfe85928d9dd4c94ae245850f
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Nov 9 13:49:16 2025 +0100
+| 
+|     good
+| 
+* commit 0b2232f94a61f09f47c685268e3b3e6b16bd742b
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sat Nov 8 22:06:03 2025 +0100
+| 
+|     copilot nadhef lcode
+| 
+* commit d5495b246989a1dbae724358c449dbef07b7ccf9
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sat Nov 8 21:42:53 2025 +0100
+| 
+|     login and signup worked
+|   
+| * commit 2b1de878f95b50c1ab9a7114a85c5ab382e025da
+| | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | Date:   Sat Nov 8 18:21:21 2025 +0100
+| | 
+| |     tehradna
+| | 
+| * commit c968a8d2f4fce99145ec7e8ffe2ed386cb2863c5
+| | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | Date:   Fri Nov 7 22:18:00 2025 +0100
+| | 
+| |     aho grib teslek
+| | 
+| * commit 035cc5dbe74ec82b9468634e0c27f0a27a40b4c3
+|/  Author: ahmed meliane <ahmed.meliane04@gmail.com>
+|   Date:   Fri Nov 7 21:33:03 2025 +0100
+|   
+|       supabase mat7ebech te5dem
+|   
+| * commit 349ba6e6a0e666412f8c549ba807c53dcbb03b1c
+|/  Author: ahmed meliane <ahmed.meliane04@gmail.com>
+|   Date:   Fri Nov 7 18:35:54 2025 +0100
+|   
+|       tehradna
+| 
+* commit 10a54f62b7fbea9e7662688be786037d210f6ea1
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Wed Nov 5 23:10:21 2025 +0100
+| 
+|     3odna'
+| 
+* commit 7b7e00c2ebfd18b56aeb9cdd649cafd491dd4f15
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Wed Nov 5 23:09:17 2025 +0100
+| 
+|     add HR routes for managing employees and ensure EmployeesList is initialized
+| 
+* commit f1f055653893ad5c80e4b17a6947f61c71339948
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Oct 12 22:28:41 2025 +0100
+| 
+|     add HR routes for managing employees and ensure EmployeesList is initialized
+| 
+* commit 46ccc3bbf5d6f7f31d031df495dc6de2012666bb
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Oct 12 21:49:48 2025 +0100
+| 
+|     implement user authentication and password management features
+| 
+* commit 1bed62dd05e5397652966f08569bd296536a5c7a
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Oct 12 18:04:32 2025 +0100
+| 
+|     remove unneeded classes
+| 
+* commit 1c6482906a1f5adc0316d311fffdb6ee956fad18
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Sun Oct 12 18:01:36 2025 +0100
+| 
+|     change user class
+|   
+| * commit d14a14424ed666944305adaaad64cab73d250378
+| | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | Date:   Sat Oct 11 03:52:00 2025 +0100
+| | 
+| |     create admin type in modeles package
+| | 
+| * commit af3c92719f624286b6f016487ef6af8c0917cbf9
+| | Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| | Date:   Sat Oct 11 03:12:00 2025 +0100
+| | 
+| |     awel module
+| | 
+| * commit 05f8fd13ef6f472db94007f288456271fe28571e
+|/  Author: ahmed meliane <ahmed.meliane04@gmail.com>
+|   Date:   Sat Oct 11 02:53:38 2025 +0100
+|   
+|       init Go code
+| 
+* commit 75ea9ae489c4c3a6501eb76be73e9dc055788a0d
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Fri Oct 10 20:57:01 2025 +0100
+| 
+|     add sign up
+| 
+* commit 815f10a437f0fe20d220e27adf0edea513c56a6d
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Thu Oct 9 22:59:40 2025 +0100
+| 
+|     generate first app
+| 
+* commit d7f7497f54029854f566e7e4fd73a5cf2cecf3c7
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Thu Oct 9 22:58:21 2025 +0100
+| 
+|     create Helperes
+| 
+* commit 09fa6f4613b7a9d02d876b68e06568ed81216406
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Thu Oct 9 22:57:50 2025 +0100
+| 
+|     create templates
+| 
+* commit 1febb9884044471536c45de7be683f3fe8985946
+| Author: ahmed meliane <ahmed.meliane04@gmail.com>
+| Date:   Thu Oct 9 22:56:48 2025 +0100
+| 
+|     init server
+| 
+* commit 3a33b4b646fc9a77c44a2205fbab8f5f58d6b379
+  Author: ahmed meliane <ahmed.meliane04@gmail.com>
+  Date:   Sat Oct 4 21:32:32 2025 +0100
+  
+      init commit
+* 13494c8 (HEAD -> _5edmetYassine, origin/_5edmetYassine) done
+* ca8408d it works for adding useres
+| * 3bc4994 (origin/yassine_work1) Add files via upload
+| | * 51ae081 (impliment_old_sys) chat da5elha fe 7it
+| | * 850c440 (addMeetSysteme) old system
+| | * 409c2ff add join meet
+| | * 96bfdfe create meet api
+| | * 88b5284 add meet jhelper
+| |/  
+|/|   
+* | f780cb5 (main) create meet class
+|/  
+* 24f71f7 (origin/main, origin/HEAD, addHRfunctions) codePart work
+* bcc06c8 json error
+* 7a1d7a4 add code generateor
+* abe6cea good
+* 0b2232f (addsupaBase2) copilot nadhef lcode
+* d5495b2 login and signup worked
+| * 2b1de87 (addsupaBase) tehradna
+| * c968a8d aho grib teslek
+| * 035cc5d supabase mat7ebech te5dem
+|/  
+| * 349ba6e (joinCode) tehradna
+|/  
+* 10a54f6 3odna'
+* 7b7e00c add HR routes for managing employees and ensure EmployeesList is initialized
+* f1f0556 add HR routes for managing employees and ensure EmployeesList is initialized
+* 46ccc3b implement user authentication and password management features
+* 1bed62d remove unneeded classes
+* 1c64829 change user class
+| * d14a144 (origin/goBackEnd, goBackEnd) create admin type in modeles package
+| * af3c927 awel module
+| * 05f8fd1 init Go code
+|/  
+* 75ea9ae (origin/pyBackEnd, pyBackEnd) add sign up
+* 815f10a generate first app
+* d7f7497 create Helperes
+* 09fa6f4 create templates
+* 1febb98 init server
+* 3a33b4b init commit

@@ -1,19 +1,17 @@
 version: '3.8'
+
 services:
   db:
-    image: postgres:latest
-
+    image: postgres:15-alpine
     restart: always
     environment:
-      POSTGRES_USER: youruser  # Choisis un user, e.g., 'admin'
-      POSTGRES_PASSWORD: yourpassword  # Choisis un mot de passe fort
-      POSTGRES_DB: meetingdb  # Nom de ta DB
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: savingdb
     ports:
       - "5432:5432"
     volumes:
-      # IMPORTANT: mount to /var/lib/postgresql (not /data)
-      - db-data:/var/lib/postgresql
-
+      - db-data:/var/lib/postgresql/data
 
 volumes:
   db-data:

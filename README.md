@@ -1,175 +1,61 @@
-# Nexus API - Employee Management System
+# SAVING_SERVER Database
 
-A clean and simple Flask-based REST API for employee management with role-based access control.
+This directory contains the database implementation for the SAVING_SERVER, using **Docker**, **PostgreSQL**, and **Flask-SQLAlchemy**.
 
-## 📁 Project Structure
+## 📁 Structure
 
-```
-nexus/
-├── app.py                  # Main application entry point
-├── requirements.txt        # Python dependencies
-├── docker-compose.yml      # PostgreSQL setup
-├── .env.example           # Environment variables template
-│
-├── config/                # Configuration module
-│   ├── __init__.py
-│   └── config.py          # App configuration classes
-│
-├── models/                # Database models
-│   ├── __init__.py
-│   ├── database.py        # Database initialization
-│   └── user.py            # User model
-│
-├── routes/                # API routes/blueprints
-│   ├── __init__.py
-│   ├── auth.py            # Authentication routes
-│   └── hr.py              # HR management routes
-│
-└── utils/                 # Utility functions
-    ├── __init__.py
-    ├── validators.py      # Input validation
-    └── decorators.py      # Custom decorators
-```
+- **`models/`**: SQLAlchemy models defining the database schema.
+    - `user.py`: User model (users, roles, profiles).
+    - `invite.py`: Invitation codes for managers.
+    - `file.py`: File metadata.
+- **`docker-compose.yml`**: Docker configuration for the PostgreSQL database.
+- **`config/`**: Configuration settings.
+- **`app.py`**: Minimal Flask app for database management (migrations, seeding).
+- **`seed.py`**: Script to populate the database with initial data.
 
 ## 🚀 Quick Start
 
-### 1. Setup Environment
-
+### 1. Start Database
 ```bash
-# Clone the repository
-cd nexus
+docker-compose up -d
+```
 
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# Windows:
-venv\Scripts\activate
-# Linux/Mac:
-source venv/bin/activate
-
-# Install dependencies
+### 2. Install Dependencies
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. Configure Environment Variables
-
+### 3. Initialize & Seed Database
 ```bash
-# Copy example environment file
-copy .env.example .env
-
-# Edit .env with your settings
-```
-
-### 3. Start PostgreSQL Database
-
-```bash
-# Using Docker Compose
-docker-compose up -d
-```
-
-### 4. Initialize Database
-
-```bash
-# Run migrations
+# Initialize migrations (if not already done)
 flask db init
 flask db migrate -m "Initial migration"
 flask db upgrade
+
+# Seed data
+python seed.py
 ```
 
-### 5. Run the Application
+## 📊 Schema
 
+The schema matches the `SAVING_SERVER_API_SPECIFICATION.md`:
+- **Users**: Stores user info, roles, and links to auth provider (`user_id`).
+- **Invites**: Manager invitation codes.
+- **Files**: Metadata for uploaded files.
+
+## 🛠️ Management
+
+Use Flask-Migrate commands to manage schema changes:
+- `flask db migrate -m "Message"`: Generate migration.
+- `flask db upgrade`: Apply changes.
+
+## ❓ Troubleshooting
+
+### Docker Not Running
+If you see connection errors when running `docker-compose up`, ensure **Docker Desktop** is running.
+
+### Verification without Docker
+You can run the verification script without Docker, as it uses a local SQLite database for testing:
 ```bash
-# Development server
-python app.py
-
-# Or using Flask CLI
-flask run
+python verify_models.py
 ```
-
-The API will be available at `http://localhost:5000`
-
-## 📡 API Endpoints
-
-### Authentication (`/auth`)
-
-- **POST** `/auth/register` - Register new user
-- **POST** `/auth/login` - Login and get JWT token
-
-### HR Management (`/hr`)
-
-- **POST** `/hr/employees` - Create new employee (HR only)
-- **GET** `/hr/employees` - List employees (HR sees all, Manager sees team)
-- **GET** `/hr/employees/<id>` - Get employee details
-- **PUT** `/hr/employees/<id>` - Update employee (HR only)
-- **DELETE** `/hr/employees/<id>` - Delete employee (HR only)
-
-## 🔐 User Roles
-
-- **hr** - Full access to all employee management
-- **manager** - Can view their team members
-- **employee** - Basic access
-
-## 🛠️ Development
-
-### Database Migrations
-
-```bash
-# Create new migration
-flask db migrate -m "Description"
-
-# Apply migrations
-flask db upgrade
-
-# Rollback migration
-flask db downgrade
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=.
-```
-
-## 📝 Environment Variables
-
-See `.env.example` for all available configuration options.
-
-## 🐳 Docker
-
-The `docker-compose.yml` file provides a PostgreSQL database:
-
-```bash
-# Start database
-docker-compose up -d
-
-# Stop database
-docker-compose down
-
-# View logs
-docker-compose logs -f
-```
-
-## 📦 Dependencies
-
-- **Flask** - Web framework
-- **Flask-SQLAlchemy** - ORM
-- **Flask-Migrate** - Database migrations
-- **Flask-JWT-Extended** - JWT authentication
-- **psycopg2-binary** - PostgreSQL adapter
-- **python-dotenv** - Environment configuration
-
-## 🔒 Security Notes
-
-- Always change default secret keys in production
-- Use strong passwords
-- Enable HTTPS in production
-- Keep dependencies updated
-
-## 📄 License
-
-MIT License
