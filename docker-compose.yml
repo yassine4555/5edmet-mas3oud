@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: savingdb
     ports:
-      - "5433:5433"
+      - "5432:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
     healthcheck:
@@ -18,22 +18,6 @@ services:
       timeout: 5s
       retries: 5
 
-  app:
-    build: .
-    restart: always
-    ports:
-      - "5001:5001"
-    environment:
-      DATABASE_URL: postgresql://admin:password@db:5432/savingdb
-      INTERNAL_API_KEY: nexus-internal-secret-key-123
-      SECRET_KEY: your-super-secret-key-change-in-production
-      DEBUG: "false"
-      UPLOAD_FOLDER: /app/storage/files
-    volumes:
-      - ./storage:/app/storage
-    depends_on:
-      db:
-        condition: service_healthy
-
+  
 volumes:
   db-data:

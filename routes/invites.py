@@ -42,3 +42,42 @@ def create_invite():
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
+
+
+@invites_bp.route('/<code>', methods=['GET'])
+@require_api_key
+def get_invite_by_code(code):
+    """
+    Get invite details by code.
+    
+    Example response:
+    {
+        "id": 1,
+        "manager_id": "auth0_manager_123",
+        "code": "hf9ou",
+        "max_uses": 5,
+        "used_count": 0,
+        "expires_at": "2025-12-14T10:30:00Z",
+        "is_active": true,
+        "created_at": "2025-12-07T10:30:00Z"
+    }
+    """
+    try:
+        invite = Invite.query.filter_by(code=code).first()
+        
+        if not invite:
+            return jsonify({
+                "success": False,
+                "error": "Invite code not found"
+            }), 404
+        
+        return jsonify({
+            "success": True,
+            "data": invite.to_dict()
+        }), 200
+        
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e)
+        }), 500

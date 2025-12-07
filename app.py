@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate
 from config.config import Config
-from models import db, User, Invite, File, Meeting
+from models import db, User, Invite, File, Meeting, ManagerCode
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -14,11 +14,13 @@ from routes.users import users_bp
 from routes.invites import invites_bp
 from routes.files import files_bp
 from routes.meetings import meetings_bp
+from routes.manager_codes import manager_codes_bp
 
 app.register_blueprint(users_bp, url_prefix='/users')
 app.register_blueprint(invites_bp, url_prefix='/invites')
 app.register_blueprint(files_bp, url_prefix='/file')
 app.register_blueprint(meetings_bp, url_prefix='/meetings')
+app.register_blueprint(manager_codes_bp, url_prefix='/manager_codes')
 
 @app.route('/')
 def index():
