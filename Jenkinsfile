@@ -20,11 +20,11 @@ pipeline {
                 script {
                     dir('DataBase2') {
                         // Check Python availability
-                        bat 'python --version'
-                        bat 'pip --version'
+                        sh 'python3 --version'
+                        sh 'pip3 --version'
                         
                         // Install dependencies
-                        bat 'pip install -r requirements.txt'
+                        sh 'pip3 install -r requirements.txt'
                     }
                 }
             }
@@ -35,10 +35,10 @@ pipeline {
                 script {
                     dir('DataBase2') {
                         // Run the model verification script
-                        bat 'python verify_models.py'
+                        sh 'python3 verify_models.py'
                         
                         // Run the API verification script
-                        bat 'python verify_api.py'
+                        sh 'python3 verify_api.py'
                     }
                 }
             }
