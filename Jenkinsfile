@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.11-slim'
-            args '-u root:root'
-        }
-    }
+    agent any
 
     environment {
         // Set environment variables for testing
@@ -24,12 +19,12 @@ pipeline {
             steps {
                 script {
                     dir('DataBase2') {
-                        // Python is already available in the Docker image
-                        sh 'python --version'
-                        sh 'pip --version'
+                        // Check Python availability
+                        bat 'python --version'
+                        bat 'pip --version'
                         
                         // Install dependencies
-                        sh 'pip install -r requirements.txt'
+                        bat 'pip install -r requirements.txt'
                     }
                 }
             }
@@ -40,10 +35,10 @@ pipeline {
                 script {
                     dir('DataBase2') {
                         // Run the model verification script
-                        sh 'python verify_models.py'
+                        bat 'python verify_models.py'
                         
                         // Run the API verification script
-                        sh 'python verify_api.py'
+                        bat 'python verify_api.py'
                     }
                 }
             }
