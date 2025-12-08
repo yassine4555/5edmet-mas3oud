@@ -35,8 +35,8 @@ pipeline {
                 // Run the model verification script
                 sh 'python verify_models.py'
                 
-                // You could also run verify_db.py if you have a local postgres
-                // but usually pipelines use ephemeral DBs or docker services
+                // Run the API verification script
+                sh 'python verify_api.py'
             }
         }
     }

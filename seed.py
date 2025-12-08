@@ -1,12 +1,11 @@
 from app import app, db
-from models import User, Invite, File
-from datetime import datetime, timedelta
+from models import User, Invite, File, Activity, Meeting
 
 def seed_data():
     with app.app_context():
         print("Seeding data...")
         
-        # Create tables if they don't exist (though migration is preferred)
+        # Create tables if they don't exist
         db.create_all()
         
         # Check if data exists
@@ -72,6 +71,17 @@ def seed_data():
             file_path='/storage/files/welcome_packet.pdf'
         )
         db.session.add(file)
+        
+        # Activity (Seed for verification)
+        activity = Activity(
+            type='system',
+            title='Database Initialized',
+            description='Initial seed data created',
+            creator='admin@example.com',
+            date=datetime.utcnow(),
+            status='completed'
+        )
+        db.session.add(activity)
         
         db.session.commit()
         print("Seeding completed!")
