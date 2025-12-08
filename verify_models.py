@@ -2,7 +2,7 @@ import unittest
 import os
 from flask import Flask
 from models.database import db
-from models import User, Invite, File
+from models import User, Invite, File, Activity
 from datetime import datetime
 
 class TestDatabaseModels(unittest.TestCase):
@@ -105,6 +105,34 @@ class TestDatabaseModels(unittest.TestCase):
         retrieved = File.query.filter_by(file_id='file_123').first()
         self.assertIsNotNone(retrieved)
         self.assertEqual(retrieved.filename, 'test.pdf')
+
+    def test_activity_creation(self):
+        print("Testing activity creation...")
+        user = User(
+            email='creator@example.com',
+            user_id='auth0_creator_999',
+            first_name='Creator',
+            last_name='User',
+            role='manager'
+        )
+        db.session.add(user)
+        db.session.commit()
+        
+        activity = Activity(
+            type='meeting',
+            title='Team Sync',
+            description='Weekly sync',
+            creator='creator@example.com',
+            date=datetime(2025, 1, 1, 10, 0),
+            status='scheduled'
+        )
+        db.session.add(activity)
+        db.session.commit()
+        
+        retrieved = Activity.query.filter_by(title='Team Sync').first()
+        self.assertIsNotNone(retrieved)
+        self.assertEqual(retrieved.creator, 'creator@example.com')
+        self.assertEqual(retrieved.status, 'scheduled')
 
 if __name__ == '__main__':
     unittest.main()

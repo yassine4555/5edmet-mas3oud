@@ -17,7 +17,8 @@ class Config:
     # Default to localhost for running outside docker, or use service name 'db' inside docker
     SQLALCHEMY_DATABASE_URI = os.getenv(
         'DATABASE_URL',
-        'postgresql://admin:password@localhost:5432/savingdb'
+       # 'postgresql://admin:password@localhost:5432/savingdb'
+         'postgresql://admin:password@localhost:5434/savingdb'
     )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     

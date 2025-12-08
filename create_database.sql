@@ -165,6 +165,35 @@ CREATE INDEX idx_meetings_is_active ON meetings(is_active);
 CREATE INDEX idx_meetings_created_at ON meetings(created_at);
 
 -- ============================================
+-- Table: activities
+-- ============================================
+CREATE TABLE activities (
+    id SERIAL PRIMARY KEY,
+    activity_id VARCHAR(255) UNIQUE NOT NULL,
+    date TIMESTAMP WITH TIME ZONE NOT NULL,
+    type VARCHAR(100) NOT NULL,
+    title VARCHAR(255),
+    description TEXT,
+    
+    creator VARCHAR(255) NOT NULL,
+    employees_joined JSONB DEFAULT '[]'::JSONB,
+    status VARCHAR(50) DEFAULT 'scheduled',
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT fk_activities_creator FOREIGN KEY (creator) 
+        REFERENCES users(email) ON DELETE CASCADE
+);
+
+-- Create indexes for activities table
+CREATE INDEX idx_activities_activity_id ON activities(activity_id);
+CREATE INDEX idx_activities_creator ON activities(creator);
+CREATE INDEX idx_activities_type ON activities(type);
+CREATE INDEX idx_activities_date ON activities(date);
+CREATE INDEX idx_activities_status ON activities(status);
+
+-- ============================================
 -- Triggers for updated_at
 -- ============================================
 CREATE OR REPLACE FUNCTION update_updated_at_column()
