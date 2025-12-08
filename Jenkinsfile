@@ -15,47 +15,66 @@ pipeline {
             }
         }
         
-        stage('Verify Project Structure') {
+        stage('Install Dependencies') {
             steps {
                 script {
                     dir('DataBase2') {
-                        // Check if required files exist
+                        // Try to use python3, fall back to python
                         sh '''
-                            echo "Checking project structure..."
-                            test -f requirements.txt && echo "✓ requirements.txt found" || exit 1
-                            test -f app.py && echo "✓ app.py found" || exit 1
-                            test -f verify_models.py && echo "✓ verify_models.py found" || exit 1
-                            test -f verify_api.py && echo "✓ verify_api.py found" || exit 1
-                            test -d models && echo "✓ models/ directory found" || exit 1
-                            test -d routes && echo "✓ routes/ directory found" || exit 1
-                            test -d config && echo "✓ config/ directory found" || exit 1
-                            echo "All required files and directories are present!"
+                            if command -v python3 &> /dev/null; then
+                                PYTHON_CMD=python3
+                                PIP_CMD=pip3
+                            elif command -v python &> /dev/null; then
+                                PYTHON_CMD=python
+                                PIP_CMD=pip
+                            else
+                                echo "Error: Python is not installed"
+                                exit 1
+                            fi
+                            
+                            echo "Using Python: $PYTHON_CMD"
+                            $PYTHON_CMD --version
+                            
+                            echo "Installing dependencies..."
+                            $PIP_CMD install -r requirements.txt --user
                         '''
                     }
                 }
             }
         }
 
-        stage('List Python Files') {
+        stage('Verify Models') {
             steps {
                 script {
                     dir('DataBase2') {
                         sh '''
-                            echo "Python files in the project:"
-                            find . -name "*.py" -not -path "./__pycache__/*" -not -path "./.venv/*" | sort
+                            if command -v python3 &> /dev/null; then
+                                PYTHON_CMD=python3
+                            else
+                                PYTHON_CMD=python
+                            fi
+                            
+                            echo "Running verify_models.py..."
+                            $PYTHON_CMD verify_models.py
                         '''
                     }
                 }
             }
         }
 
-        stage('Check Requirements') {
+        stage('Verify API') {
             steps {
                 script {
                     dir('DataBase2') {
                         sh '''
-                            echo "Dependencies listed in requirements.txt:"
-                            cat requirements.txt
+                            if command -v python3 &> /dev/null; then
+                                PYTHON_CMD=python3
+                            else
+                                PYTHON_CMD=python
+                            fi
+                            
+                            echo "Running verify_api.py..."
+                            $PYTHON_CMD verify_api.py
                         '''
                     }
                 }
@@ -68,10 +87,10 @@ pipeline {
             echo 'Pipeline finished'
         }
         success {
-            echo 'Project structure verification passed!'
+            echo 'All tests passed! ✓'
         }
         failure {
-            echo 'Project structure verification failed!'
+            echo 'Tests failed! ✗'
         }
     }
 }
