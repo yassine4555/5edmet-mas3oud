@@ -17,26 +17,61 @@ pipeline {
         
         stage('Setup Environment') {
             steps {
-                // Ensure Python and pip are installed
-                sh 'python --version'
-                sh 'pip --version'
-                
-                // Create virtual environment (optional but recommended)
-                // sh 'python -m venv venv'
-                // sh '. venv/bin/activate'
-                
-                // Install dependencies
-                sh 'pip install -r requirements.txt'
+                script {
+                    // Change to DataBase2 directory
+                    dir('DataBase2') {
+                        // Check Python version (try python3 first, common in Docker)
+                        sh '''
+                            if command -v python3 &> /dev/null; then
+                                echo "Using python3"
+                                python3 --version
+                                python3 -m pip --version || echo "pip not found, attempting install"
+                            elif command -v python &> /dev/null; then
+                                echo "Using python"
+                                python --version
+                                python -m pip --version || echo "pip not found"
+                            else
+                                echo "ERROR: Python not found!"
+                                exit 1
+                            fi
+                        '''
+                        
+                        // Install dependencies
+                        sh '''
+                            if command -v python3 &> /dev/null; then
+                                python3 -m pip install --user -r requirements.txt || pip3 install --user -r requirements.txt
+                            else
+                                python -m pip install --user -r requirements.txt || pip install --user -r requirements.txt
+                            fi
+                        '''
+                    }
+                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                // Run the model verification script
-                sh 'python verify_models.py'
-                
-                // Run the API verification script
-                sh 'python verify_api.py'
+                script {
+                    dir('DataBase2') {
+                        // Run the model verification script
+                        sh '''
+                            if command -v python3 &> /dev/null; then
+                                python3 verify_models.py
+                            else
+                                python verify_models.py
+                            fi
+                        '''
+                        
+                        // Run the API verification script
+                        sh '''
+                            if command -v python3 &> /dev/null; then
+                                python3 verify_api.py
+                            else
+                                python verify_api.py
+                            fi
+                        '''
+                    }
+                }
             }
         }
     }
