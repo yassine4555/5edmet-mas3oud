@@ -33,13 +33,13 @@ def create_activity():
         }), 404
     
     # Validate activity type
-    valid_types = ['meeting', 'training', 'team_building', 'workshop', 'presentation', 'review', 'other']
-    if data['type'].lower() not in valid_types:
-        return jsonify({
-            "success": False,
-            "error": f"Invalid activity type: {data['type']}",
-            "valid_types": valid_types
-        }), 400
+    #valid_types = ['meeting', 'training', 'team_building', 'workshop', 'presentation', 'review', 'other']
+    #if data['type'].lower() not in valid_types:
+    #    return jsonify({
+    #        "success": False,
+    #        "error": f"Invalid activity type: {data['type']}",
+    #        "valid_types": valid_types
+    #    }), 400
     
     try:
         # Parse date

@@ -12,10 +12,10 @@ files_bp = Blueprint('files', __name__)
 def upload_file():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400
-        
+    print("file mawjouda")
     file = request.files['file']
     user_email = request.form.get('user_email')
-    
+    print("user_email mawjoud",user_email)
     if file.filename == '':
         return jsonify({"error": "No selected file"}), 400
         
@@ -25,7 +25,8 @@ def upload_file():
     # Verify user exists
     user = User.query.filter_by(email=user_email).first()
     if not user:
-        return jsonify({"error": "User not found"}), 404
+        print("zzzzz")
+        return jsonify({"error": "User not found"}), 412
 
     try:
         filename = secure_filename(file.filename)
@@ -59,7 +60,7 @@ def upload_file():
             "success": True,
             "filename": filename,
             "file_id": file_id,
-            "url": f"/file/get/{filename}"
+            "url": f"/files/get/{filename}"
         }), 200
         
     except Exception as e:

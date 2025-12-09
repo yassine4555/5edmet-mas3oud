@@ -19,7 +19,7 @@ from routes.activities import activities_bp
 
 app.register_blueprint(users_bp, url_prefix='/users')
 app.register_blueprint(invites_bp, url_prefix='/invites')
-app.register_blueprint(files_bp, url_prefix='/file')
+app.register_blueprint(files_bp, url_prefix='/files')
 app.register_blueprint(meetings_bp, url_prefix='/meetings')
 app.register_blueprint(manager_codes_bp, url_prefix='/manager_codes')
 app.register_blueprint(activities_bp, url_prefix='/activities')
